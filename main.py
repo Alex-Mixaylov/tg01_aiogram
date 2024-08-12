@@ -31,7 +31,7 @@ async def help(message:Message):
     await message.answer('Этот бот умеет выполнять команды: \n /start - Начало работы \n /help - Справка')
 @dp.message(CommandStart())
 async def start(message:Message):
-    await message.answer('Приветики! Я бот :)')
+    await message.answer('Приветики! Я бот:)')
 
 async def main():
     await dp.start_polling(bot)
