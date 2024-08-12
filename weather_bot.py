@@ -24,10 +24,13 @@ def get_weather(city):
 
 @dp.message(Command('weather'))
 async def weather(message: Message):
-    city = message.get_args()  # Получаем аргументы команды (название города)
-    if not city:
+    # Извлекаем аргументы после команды /weather
+    args = message.text.split(maxsplit=1)
+    if len(args) < 2:
         await message.answer('Отправьте команду с названием города, например, /weather Москва')
         return
+
+    city = args[1]
 
     try:
         weather_info, error = get_weather(city)
@@ -54,4 +57,7 @@ async def main():
     await dp.start_polling(bot)
 
 
-asyncio.run(main())
+if __name__ == '__main__':
+    asyncio.run(main())
+
+
