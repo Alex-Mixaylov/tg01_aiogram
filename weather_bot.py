@@ -3,8 +3,14 @@ from aiogram import Bot, Dispatcher
 from aiogram.filters import CommandStart, Command
 from aiogram.types import Message
 import requests
-from config import TOKEN, API_KEY
 
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+TOKEN = os.getenv('TOKEN')
+API_KEY = os.getenv('API_KEY')
 bot = Bot(token=TOKEN)
 dp = Dispatcher()
 
